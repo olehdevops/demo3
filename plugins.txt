@@ -1,0 +1,13 @@
+blueocean:1.14.0
+google-login:1.4
+credentials:2.1.18
+ssh-credentials:1.15
+git:3.9.3
+github:1.29.4
+greenballs:1.15
+workflow-aggregator:2.6
+job-dsl:1.72
+dashboard-view:2.10
+github-organization-folder:1.6
+kubernetes:1.14.9
+pipeline-model-definition:1.3.8
