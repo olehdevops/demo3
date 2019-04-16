@@ -1,5 +1,5 @@
 import unittest
-from test_jenkins import test_jenkins
+from main import test_jenkins
 
 
 class MyFunTest(unittest.TestCase):
