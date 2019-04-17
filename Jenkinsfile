@@ -1,7 +1,8 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent {kubernetes true
+}
     stages {
         stage('build') {
             steps {
