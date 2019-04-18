@@ -4,15 +4,20 @@ pipeline {
     agent {
     kubernetes {
       label 'declarative'
-      containerTemplate {
-        name 'python'
-        image 'python'
-        ttyEnabled true
-        command 'cat'
-        
-       
+      containers: {
+        containerTemplate {
+          name 'python'
+          image 'python'
+          ttyEnabled true
+          command 'cat'    
+          }
+        containerTemplate {
+          name 'zip'
+          image 'kramos/alpine-zip'
+          ttyEnabled true
+          command 'cat'    
+          }
       }
-      
     }
   }
     stages {
