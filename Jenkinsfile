@@ -13,7 +13,7 @@ podTemplate(label: label, containers: [
             stage("run in one container"){
                 container("python-alpine"){
                     sh "python --version"
-                    sh "python unit-test.py"
+                    
                 }
             }
 
@@ -21,7 +21,7 @@ podTemplate(label: label, containers: [
                 container('zip'){
 
                     sh "zip -v"
-                    sh "./filezip.sh"
+                   
                 }
             }
         }
