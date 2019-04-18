@@ -1,32 +1,26 @@
-def label = "mypod"
 
+#!groovy
 
-podTemplate(label: label, containers: [
-  containerTemplate(name: 'python-alpine', image: 'python:3-alpine', command: 'cat', ttyEnabled: true),
-  containerTemplate(name: 'zip', image: 'kramos/alpine-zip', command: 'cat', ttyEnabled: true)
-])
-{
+pipeline {
+    agent {
+    kubernetes {
+      label 'declarative'
+      containerTemplate {
+        name 'zip'
+        image 'kramos/alpine-zip'
+        ttyEnabled true
+        command 'cat'
+      }
+    }
+  }
+    stages {
 
-    node(label)
-    {
-        try {
-            stage("run in one container"){
-                container("python-alpine"){
-                    sh "python --version"
-                    
-                }
+        stage('zip') {
+            steps {
+                sh 'zip -v'
             }
-
-            stage("run in other container"){
-                container('zip'){
-
-                    sh "zip -v"
-                   
-                }
-            }
-        }
-        catch(err){
-            currentBuild.result = 'Failure'
         }
     }
+
+
 }
