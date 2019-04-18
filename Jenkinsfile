@@ -2,14 +2,14 @@
 
 pipeline {
     agent {
-    kubernetes {
+        kubernetes {
       //containerTemplates {
        
-        containerTemplate {
-          name 'python'
-          image 'python'
-          ttyEnabled true
-          command 'cat'    
+            containerTemplate {
+                name 'python'
+                image 'python'
+                ttyEnabled true
+                command 'cat'    
           }
         //containerTemplate {
           //name 'zip'
@@ -27,10 +27,10 @@ pipeline {
                 sh 'python --version'
             }
         }
-        stage('zip') {
-            steps {
-                sh 'zip -v'
-            }
+        //stage('zip') {
+          //  steps {
+            //    sh 'zip -v'
+            //}
         }
         
     }
