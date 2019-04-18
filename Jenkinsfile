@@ -11,7 +11,6 @@ pipeline {
         command 'cat'
        
       }
-      label 'zip'
       containerTemplate {
         name 'zip'
         image 'kramos/alpine-zip'
