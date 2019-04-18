@@ -10,10 +10,6 @@ pipeline {
         ttyEnabled true
         command 'cat'
         
-        name 'zip'
-        image 'kramos/alpine-zip'
-        ttyEnabled true
-        command 'cat'
        
       }
       
