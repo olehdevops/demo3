@@ -5,8 +5,8 @@ pipeline {
     kubernetes {
       label 'declarative'
       containerTemplate {
-        name 'zip'
-        image 'kramos/alpine-zip'
+        name 'python'
+        image 'python'
         ttyEnabled true
         command 'cat'
        
