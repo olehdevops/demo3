@@ -11,12 +11,12 @@ pipeline {
           ttyEnabled true
           command 'cat'    
           }
-        containerTemplate {
-          name 'zip'
-          image 'kramos/alpine-zip'
-          ttyEnabled true
-          command 'cat'    
-          }
+        //containerTemplate {
+          //name 'zip'
+          //image 'kramos/alpine-zip'
+          //ttyEnabled true
+          //command 'cat'    
+          //}
       }
     }
   }
