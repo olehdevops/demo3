@@ -11,13 +11,7 @@ pipeline {
         command 'cat'
        
       }
-      containerTemplate {
-        name 'python'
-        image 'python'
-        ttyEnabled true
-        command 'cat'
- 
-      }
+      
     }
   }
     stages {
@@ -27,11 +21,7 @@ pipeline {
                 sh 'zip -v'
             }
         }
-        stage('python') {
-            steps {
-                sh 'python --version'
-            }
-        }
+        
     }
 
 
