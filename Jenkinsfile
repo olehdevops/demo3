@@ -12,7 +12,7 @@ pipeline {
 
         stage('zip') {
             steps {
-                sh './filezip.sh app.zip main.py, requirements.txt'
+                sh 'zip -v'
             }
         }
     }
