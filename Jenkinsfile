@@ -11,6 +11,14 @@ pipeline {
         command 'cat'
        
       }
+      label 'zip'
+      containerTemplate {
+        name 'zip'
+        image 'kramos/alpine-zip'
+        ttyEnabled true
+        command 'cat'
+       
+      }
       
     }
   }
@@ -19,6 +27,11 @@ pipeline {
         stage('python') {
             steps {
                 sh 'python --version'
+            }
+        }
+        stage('zip') {
+            steps {
+                sh 'zip -v'
             }
         }
         
