@@ -16,9 +16,9 @@ pipeline {
   }
     stages {
 
-        stage('zip') {
+        stage('python') {
             steps {
-                sh 'zip -v'
+                sh 'python --version'
             }
         }
         
