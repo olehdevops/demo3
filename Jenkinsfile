@@ -4,7 +4,7 @@ pipeline {
     agent {
     kubernetes {
       label 'declarative'
-      containers {
+      containerTemplates {
         containerTemplate {
           name 'python'
           image 'python'
