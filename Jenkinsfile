@@ -3,7 +3,7 @@
 pipeline {
     agent {
     kubernetes {
-      containerTemplates {
+      //containerTemplates {
        
         containerTemplate {
           name 'python'
@@ -18,7 +18,7 @@ pipeline {
           //command 'cat'    
           //}
       }
-    }
+    //}
   }
     stages {
 
