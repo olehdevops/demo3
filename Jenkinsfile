@@ -3,8 +3,8 @@
 pipeline {
     agent {
     kubernetes {
-      label 'declarative'
       containerTemplates {
+       
         containerTemplate {
           name 'python'
           image 'python'
