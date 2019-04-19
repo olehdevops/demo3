@@ -5,12 +5,12 @@ pipeline {
     kubernetes {
       label 'mypod'
       containerTemplates {
-        containerTemplate {
+        
           name 'python'
           image 'python'
           ttyEnabled true
           command 'cat'
-        }
+        
         
       }
     }
