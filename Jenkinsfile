@@ -11,12 +11,7 @@ pipeline {
           ttyEnabled true
           command 'cat'
         }
-        containerTemplate {
-          name 'zip'
-          image 'kramos/alpine-zip'
-          ttyEnabled true
-          command 'cat'
-        }
+        
       }
     }
   }
@@ -24,19 +19,13 @@ pipeline {
   stages {
     stage('python') {
       steps {
-        container('python') {
+        
           
           sh 'python --version'
-        }
+        
       }
     }
-    stage('zip') {
-      steps {
-        container('zip') {
-          
-          sh 'zip -v'
-        }
-      }
-    }
+    
+   
   }
 }
