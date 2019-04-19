@@ -8,7 +8,7 @@ pipeline {
           containerTemplate {name 'python'
            image 'python'
            ttyEnabled true
-           command 'cat'},
+           command 'cat'}
           containerTemplate {name 'zip'
            image 'kramos/alpine-zip'
            ttyEnabled true
