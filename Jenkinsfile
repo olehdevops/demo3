@@ -11,13 +11,13 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
-  - name: maven
-    image: maven:alpine
+  - name: python
+    image: python
     command:
     - cat
     tty: true
-  - name: busybox
-    image: busybox
+  - name: zip
+    image: kramos/alpine-zip
     command:
     - cat
     tty: true
@@ -25,13 +25,13 @@ spec:
     }
   }
   stages {
-    stage('Run maven') {
+    stage('python') {
       steps {
-        container('maven') {
-          sh 'mvn -version'
+        container('python') {
+          sh 'python --version'
         }
-        container('busybox') {
-          sh '/bin/busybox'
+        container('zip') {
+          sh 'zip -v'
         }
       }
     }
