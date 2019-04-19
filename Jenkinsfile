@@ -1,5 +1,3 @@
-#!groovy
-
 pipeline {
   agent {
     kubernetes {
@@ -26,21 +24,16 @@ spec:
 """
     }
   }
-    
   stages {
-
-        stage('python') {
-            steps {
-                sh 'python --version'
-            }
+    stage('python') {
+      steps {
+        container('python') {
+          sh 'python --version'
         }
-        stage('zip') {
-            steps {
-                sh 'zip -v'
-            }
+        container('zip') {
+          sh 'zip -v'
         }
-        
+      }
     }
-
-
+  }
 }
