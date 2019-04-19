@@ -1,38 +1,39 @@
-//#!groovy
-
 pipeline {
   agent {
     kubernetes {
       label 'mypod'
-      yaml
-"""
+      defaultContainer: 'jnlp'
+      yaml """
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mypod
+  labels:
+    some-label: some-label-value
 spec:
   containers:
-  - name: python
-    image: python
+  - name: maven
+    image: maven:alpine
+    command:
+    - cat
+    tty: true
+  - name: busybox
+    image: busybox
     command:
     - cat
     tty: true
 """
-        
-      
     }
   }
- 
   stages {
-    stage('python') {
+    stage('Run maven') {
       steps {
-        
-          
-          sh 'python --version'
-        
+        container('maven') {
+          sh 'mvn -version'
+        }
+        container('busybox') {
+          sh '/bin/busybox'
+        }
       }
     }
-    
-   
   }
 }
