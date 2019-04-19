@@ -4,7 +4,7 @@ pipeline {
   agent {
     kubernetes {
       label 'mypod'
-      podTemplate {
+      containerTemplates {
         containerTemplate {
           name 'python'
           image 'python'
