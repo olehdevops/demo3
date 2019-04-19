@@ -27,23 +27,26 @@ spec:
   stages {
 
     stage('Clone repo') {
-
+      step {
       checkout([$class: 'GitSCM', branches: [[name: '*/test1']],
         userRemoteConfigs: [[url: 'https://github.com/olehdevops/demo3.git']]])
-                    }
-
+      }
+    }
     stage("python"){
+      step {
       container("python"){
         sh "python --version"
           sh "python unit-test.py"
+        }
       }
     }
 
     stage("run in other container"){
+      step{
       container('zip'){
-
         sh "zip -v"
         sh "zip -j app.zip main.py requirements.txt"
+        }
       }
     }
   }
