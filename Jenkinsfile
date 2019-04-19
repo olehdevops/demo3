@@ -4,15 +4,22 @@ pipeline {
   agent {
     kubernetes {
       label 'mypod'
-      containerTemplate {
+      yaml
+"""
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: python
+    image: python
+    command:
+    - cat
+    tty: true
+"""
         
-          name 'python'
-          image 'python'
-          ttyEnabled true
-          command 'cat'
-        
-        
-      }
+      
     }
   }
  
