@@ -25,7 +25,7 @@ pipeline {
                 sh 'python --version'
             }
         }
-        tage('zip') {
+        stage('zip') {
             steps {
                 sh 'zip -v'
             }
