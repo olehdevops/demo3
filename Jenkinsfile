@@ -21,6 +21,11 @@ spec:
     command:
     - cat
     tty: true
+  - name: terraform
+    image: hashicorp/terraform
+    command:
+    - cat
+    tty: true
 """
     }
   }
@@ -41,12 +46,22 @@ spec:
       }
     }
 
-    stage("run in other container"){
+    stage("zip"){
       steps {
       container('zip'){
 
         sh "zip -v"
         sh "zip -j app.zip main.py requirements.txt"
+        }
+      }
+    }
+
+    stage("terraform"){
+      steps {
+      container('terraform'){
+
+        sh "terraform version"
+        
         }
       }
     }
