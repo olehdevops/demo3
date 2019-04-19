@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-    agent {
+  agent {
     kubernetes {
       label 'mypod'
       defaultContainer: 'jnlp'
@@ -27,7 +27,7 @@ spec:
     }
   }
     
-    stages {
+  stages {
 
         stage('python') {
             steps {
