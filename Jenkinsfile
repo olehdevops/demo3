@@ -56,12 +56,21 @@ spec:
       }
     }
 
-    stage("terraform"){
+    stage("TF plan"){
       steps {
       container('terraform'){
 
         sh "terraform version"
+        sh "terraform init"
+        sh 'terraform plan -out myplan'
         
+        }
+      }
+    }
+    stage('TF Apply') {
+      steps {
+        container('terraform') {
+          sh terraform apply -input=false myplan'
         }
       }
     }
