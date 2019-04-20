@@ -63,9 +63,10 @@ spec:
 
     stage('Checkout') {
       steps {
-        checkout scm
+      // checkout scm
         sh 'mkdir -p keys'
         sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./keys/gcp-key.json'
+        sh 'ls'
       }
     }
 
@@ -75,8 +76,8 @@ spec:
       container('terraform'){
 
         sh "terraform version"
-        sh "terraform init"
-        sh "terraform plan -out myplan"
+       // sh "terraform init"
+       // sh "terraform plan -out myplan"
         
         }
       }
@@ -84,7 +85,7 @@ spec:
     stage("TF Apply") {
       steps {
         container("terraform") {
-          sh "terraform apply -input=false myplan"
+         // sh "terraform apply -input=false myplan"
         }
       }
     }
