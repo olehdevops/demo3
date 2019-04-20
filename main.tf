@@ -5,11 +5,11 @@ provider "google" {
   project = "careful-time-232710"
 }
 
-//resource "google_storage_bucket" "bucket" {
-//  name = "superdemo3"
-//  location = "EU"
-//
-//}
+resource "google_storage_bucket" "bucket" {
+  name = "superdemo3"
+  location = "EU"
+
+}
 
 resource "google_storage_bucket_object" "app21" {
   name = "app.zip"
