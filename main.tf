@@ -5,13 +5,13 @@ provider "google" {
   project = "careful-time-232710"
 }
 
-resource "google_storage_bucket" "bucket" {
-  name = "superdemo3"
-  location = "EU"
+//resource "google_storage_bucket" "bucket" {
+//  name = "superdemo3"
+//  location = "EU"
+//
+//}
 
-}
-
-resource "google_storage_bucket_object" "app21" {
+resource "google_storage_bucket_object" "saapp" {
   name = "app.zip"
   bucket = {
     url = "gs://superdemo3"
@@ -29,7 +29,7 @@ resource "google_cloudfunctions_function" "get-data" {
     url = "gs://superdemo3"
   }
 //  "${google_storage_bucket.bucket.name}"
-  source_archive_object = "${google_storage_bucket_object.app21.name}"
+  source_archive_object = "${google_storage_bucket_object.saapp.name}"
   trigger_http          = true
   timeout               = 60
   runtime               = "python37"
