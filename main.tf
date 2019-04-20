@@ -1,6 +1,6 @@
 # Configure the GCP Provider
 provider "google" {
-  credentials = "${file("./creds/gcp-key.json")}"
+  credentials = "${file("./keys/gcp-key.json")}"
   region = "us-central1"
   project = "careful-time-232710"
 }

@@ -30,9 +30,7 @@ spec:
     }
   }
 
-  environment {
-    SVC_ACCOUNT_KEY = credentials('terraform-auth')
-  }
+
 
   stages {
 
@@ -64,11 +62,11 @@ spec:
     stage('Checkout') {
       steps{
         container('terraform'){
-          withCredentials([file(credentialsId: 'terraform', variable: 'SVC_ACCOUNT_KEY')]) {
+          withCredentials([file(credentialsId: 'terraform-auth', variable: 'SVC_ACCOUNT_KEY')]) {
             sh 'ls -al $SVC_ACCOUNT_KEY'
             echo "My secret text is '${SVC_ACCOUNT_KEY}'"
             sh 'mkdir -p creds'
-            sh "cp \$SVC_ACCOUNT_KEY ./creds/gcp-key.json"
+            sh "cp \$SVC_ACCOUNT_KEY ./keys/gcp-key.json"
           }
         }
       }
