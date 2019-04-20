@@ -66,6 +66,7 @@ spec:
       // checkout scm
         sh 'mkdir -p keys'
         sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./keys/gcp-key.json'
+        sh 'cd keys'
         sh 'ls'
       }
     }
