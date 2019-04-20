@@ -62,15 +62,15 @@ spec:
 
         sh "terraform version"
         sh "terraform init"
-        sh 'terraform plan -out myplan'
+        sh "terraform plan -out myplan"
         
         }
       }
     }
-    stage('TF Apply') {
+    stage("TF Apply") {
       steps {
-        container('terraform') {
-          sh terraform apply -input=false myplan'
+        container("terraform") {
+          sh "terraform apply -input=false myplan"
         }
       }
     }
