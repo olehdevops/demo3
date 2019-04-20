@@ -77,8 +77,8 @@ spec:
       container('terraform'){
 
         sh "terraform version"
-       // sh "terraform init"
-       // sh "terraform plan -out myplan"
+        sh "terraform init"
+        sh "terraform plan -out myplan"
         
         }
       }
