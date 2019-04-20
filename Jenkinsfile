@@ -61,11 +61,14 @@ spec:
       }
     }
 
-    stage('Cred') {
-      steps {
-        checkout scm
-        sh 'mkdir -p creds'
-        sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/gcp-key.json'
+    stage('Checkout') {
+      container('terraform'){
+        withCredentials([file(credentialsId: 'terraform', variable: 'SVC_ACCOUNT_KEY')]) {
+          sh 'ls -al $SVC_ACCOUNT_KEY'
+          echo "My secret text is '${SVC_ACCOUNT_KEY}'"
+          sh 'mkdir -p creds'
+          sh "cp \$SVC_ACCOUNT_KEY ./creds/gcp-key.json"
+        }
       }
     }
 
