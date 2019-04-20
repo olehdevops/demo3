@@ -29,6 +29,11 @@ spec:
 """
     }
   }
+
+  environment {
+    SVC_ACCOUNT_KEY = credentials('terraform-auth')
+  }
+
   stages {
 
     stage('Clone repo') {
@@ -55,6 +60,15 @@ spec:
         }
       }
     }
+
+    stage('Cred') {
+      steps {
+        checkout scm
+        sh 'mkdir -p creds'
+        sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/gcp-key.json'
+      }
+    }
+
 
     stage("TF plan"){
       steps {
