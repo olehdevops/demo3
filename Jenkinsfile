@@ -87,6 +87,7 @@ spec:
       steps {
         container("terraform") {
           sh "terraform apply -input=false myplan"
+          sh "ls"
         }
       }
     }
