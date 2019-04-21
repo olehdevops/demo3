@@ -23,16 +23,16 @@ spec:
     tty: true
   - name: terraform
     image: hashicorp/terraform
-    command:
-    - cat
-    tty: true
     volumeMounts:
       - name: jenkins-dada
       mountPath: "/terraform"
-    volumes:
-      - name: jenkins-dada
-        persistentVolumeClaim:
-          claimName: jenkins-pv-claim
+  volumes:
+    - name: jenkins-dada
+      persistentVolumeClaim:
+        claimName: jenkins-pv-claim
+    command:
+    - cat
+    tty: true
 """
     }
   }
