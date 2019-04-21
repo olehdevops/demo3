@@ -24,10 +24,10 @@ spec:
   - name: terraform
     image: hashicorp/terraform
     volumeMounts:
-      - name: jenkins-dada
+      - name: terraform-dada
       mountPath: "/terraform"
   volumes:
-    - name: jenkins-dada
+    - name: terraform-dada
       persistentVolumeClaim:
         claimName: jenkins-pv-claim
     command:
