@@ -10,10 +10,6 @@ metadata:
   labels:
     some-label: some-label-value
 spec:
-  volumes:
-    - name: jenkins-dada
-      persistentVolumeClaim:
-        claimName: jenkins-pv-claim
   containers:
   - name: python
     image: python
@@ -27,10 +23,6 @@ spec:
     tty: true
   - name: terraform
     image: hashicorp/terraform
-    volumeMounts:
-      - name: jenkins-dada
-      mountPath: "/terraform"
-
     command:
     - cat
     tty: true
