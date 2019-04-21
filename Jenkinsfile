@@ -11,7 +11,7 @@ metadata:
     some-label: some-label-value
 spec:
   volumes:
-    - name: terraform-dada
+    - name: jenkins-dada
       persistentVolumeClaim:
         claimName: jenkins-pv-claim
   containers:
@@ -28,7 +28,7 @@ spec:
   - name: terraform
     image: hashicorp/terraform
     volumeMounts:
-      - name: terraform-dada
+      - name: jenkins-dada
       mountPath: "/terraform"
 
     command:
