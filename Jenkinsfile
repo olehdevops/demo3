@@ -26,6 +26,13 @@ spec:
     command:
     - cat
     tty: true
+    volumeMounts:
+      - name: jenkins-dada
+      mountPath: "/terraform"
+    volumes:
+      - name: jenkins-dada
+        persistentVolumeClaim:
+          claimName: jenkins-pv-claim
 """
     }
   }
