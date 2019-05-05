@@ -31,7 +31,7 @@ spec:
   }
 
   environment {
-    SVC_ACCOUNT_KEY = credentials('terraform-auth')
+    SVC_ACCOUNT_KEY = credentials('terraform')
   }
 
   stages {
