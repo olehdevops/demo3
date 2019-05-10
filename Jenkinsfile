@@ -65,6 +65,7 @@ spec:
       steps {
       // checkout scm
         sh 'mkdir -p keys'
+        sh 'echo $SVC_ACCOUNT_KEY'
         sh 'cp $SVC_ACCOUNT_KEY ./keys/gcp-key.json'
         sh 'cat ./keys/gcp-key.json'
         sh 'ls'
